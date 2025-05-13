@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const isGithubPages = process.env.GITHUB_ACTIONS || false;
 
-module.exports = nextConfig
+const nextConfig = {
+  output: 'export', // Important for static export
+  assetPrefix: isGithubPages ? '/myspaceportfolio/' : '',
+  basePath: isGithubPages ? '/myspaceportfolio
+' : '',
+};
+
+module.exports = nextConfig;
